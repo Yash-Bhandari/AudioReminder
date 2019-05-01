@@ -1,3 +1,5 @@
+package Utilities;
+
 public class Timer {
     long startTime;
     long endTime;
