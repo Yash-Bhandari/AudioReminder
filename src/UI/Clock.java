@@ -17,10 +17,8 @@ public class Clock extends JLabel implements Runnable{
     }
 
     public void run() {
-        while(timer.getTimeLeft() >= 0) {
-            String time = timer.getTimeLeft() / 60 + ":"
-            if (timer.getTimeLeft() timer.getTimeLeft() % 60;
-            setText(time);
+        while(timer.getTimeLeft().isPositive()) {
+            setText(timer.getTimeLeft().toString());
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

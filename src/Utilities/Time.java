@@ -5,8 +5,8 @@ public class Time {
     int mins;
     int secs;
 
-    public Time(int ms){
-        secs = ms / 1000;
+    public Time(long ms){
+        secs = (int)(ms / 1000);
         mins = secs / 60;
         secs = secs % 60;
         hours = mins /60;
@@ -19,7 +19,9 @@ public class Time {
         this.secs = secs;
     }
 
-
+    public boolean isPositive(){
+        return secs >= 0;
+    }
 
     @Override
     public String toString(){
@@ -29,9 +31,9 @@ public class Time {
             if (mins < 10)
                 output += "0";
         }
-        output += 0 + ":";
+        output += mins + ":";
         if (secs < 10)
-            output += 0;
+            output += "0";
         output += secs;
 
         return output;
