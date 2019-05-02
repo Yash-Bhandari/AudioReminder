@@ -22,11 +22,4 @@ public class Timer {
     public int getTimeLeft() {
         return (int)(endTime - System.currentTimeMillis()) / 1000;
     }
-
-    public static void main(String[] args) throws InterruptedException {
-        Timer t = new Timer(0, 10);
-        System.out.println(t.getTime());
-        Thread.sleep(5000);
-        System.out.println(t.getTime());
-    }
 }
