@@ -23,6 +23,10 @@ public class Time {
         return secs >= 0;
     }
 
+    public long toMS() {
+        return 1000 * (secs + 60 * (mins + 60 * hours));
+    }
+
     @Override
     public String toString(){
         String output = "";

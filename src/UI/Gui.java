@@ -20,6 +20,11 @@ public class Gui {
         program.setTitle("AudioReminder");
         program.setVisible(true);
         program.add(new Clock(t));
+
+        JToolBar timeControls = new JToolBar();
+        timeControls.add(new JButton("+10 min"));
+        timeControls.add(new JButton("+1 hour"));
+        program.add(timeControls);
     }
 
     public static void main(String[] args) {
