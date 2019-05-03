@@ -1,9 +1,9 @@
 package Utilities;
 
 public class Time {
-    int hours;
-    int mins;
-    int secs;
+    private int hours;
+    private int mins;
+    private int secs;
 
     public Time(long ms){
         secs = (int)(ms / 1000);
@@ -27,6 +27,13 @@ public class Time {
         return 1000 * (secs + 60 * (mins + 60 * hours));
     }
 
+    public void add(Time toAdd){
+        secs += toAdd.getSecs();
+        mins += secs / 60 + toAdd.getMins();
+        secs = secs % 60;
+        hours += mins / 60 + toAdd.getHours();
+    }
+
     @Override
     public String toString(){
         String output = "";
@@ -43,4 +50,15 @@ public class Time {
         return output;
     }
 
+    public int getHours() {
+        return hours;
+    }
+
+    public int getMins() {
+        return mins;
+    }
+
+    public int getSecs() {
+        return secs;
+    }
 }

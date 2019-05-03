@@ -20,12 +20,10 @@ public class Clock extends JLabel implements Runnable{
         while(timer.getTimeLeft().isPositive()) {
             setText(timer.getTimeLeft().toString());
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
-
-
 }
