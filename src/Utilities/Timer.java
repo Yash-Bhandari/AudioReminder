@@ -9,6 +9,7 @@ public class Timer {
     public Timer(int hours, int mins, int seconds) {
         startTime = System.currentTimeMillis();
         endTime = startTime + seconds * 1000 + mins * 60 * 1000 + hours * 1000 * 60 * 60;
+        pauseTime = startTime;
         paused = false;
     }
 
@@ -34,6 +35,7 @@ public class Timer {
     }
 
     public void addTime(Time toAdd) {
+        System.out.println("added " + toAdd);
         endTime += toAdd.toMS();
     }
 
@@ -43,8 +45,11 @@ public class Timer {
     }
 
     public void resume() {
-        long timePaused = System.currentTimeMillis() - pauseTime;
-        endTime += timePaused;
+        if(paused) {
+            long timePaused = System.currentTimeMillis() - pauseTime;
+            endTime += timePaused;
+        }
+        paused = false;
     }
 
     public boolean isPaused() {

@@ -17,8 +17,10 @@ public class Clock extends JLabel implements Runnable{
     }
 
     public void run() {
-        while(timer.getTimeLeft().isPositive()) {
-            setText(timer.getTimeLeft().toString());
+        while (true) {
+            if (timer.getTimeLeft().isPositive()) {
+                setText(timer.getTimeLeft().toString());
+            }
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
