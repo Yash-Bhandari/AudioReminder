@@ -7,7 +7,7 @@ import javax.swing.text.StyleConstants;
 import java.awt.*;
 
 public class Clock extends JLabel implements Runnable{
-    Timer timer;
+    private final Timer timer;
     public Clock(Timer timer) {
         super("", SwingConstants.CENTER);
         this.timer = timer;

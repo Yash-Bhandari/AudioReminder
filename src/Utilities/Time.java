@@ -42,7 +42,8 @@ public class Time {
             if (mins < 10)
                 output += "0";
         }
-        output += mins + ":";
+        if(mins > 0)
+            output += mins + ":";
         if (secs < 10)
             output += "0";
         output += secs;

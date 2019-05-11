@@ -2,7 +2,6 @@ package UI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import Utilities.Timer;
 
 public class PausePlay extends JButton {
@@ -19,6 +18,7 @@ public class PausePlay extends JButton {
             timer.switchState();
             updateIcon();
         });
+        setFocusPainted(false);
     }
 
     private void updateIcon() {
