@@ -9,8 +9,8 @@ import java.awt.event.ActionEvent;
 
 public class Gui {
     JFrame program;
-    JButton plus1Min, plus10Min, plus1Hour ;
-
+    JButton plus1Min, plus10Min, plus1Hour, pausePlay;
+    Clock clock;
 
     public Gui(Timer timer) {
         /*try {
@@ -23,9 +23,15 @@ public class Gui {
         program.setSize(400, 400);
         program.setTitle("Gentle Reminder");
         program.setVisible(true);
-        program.add(new Clock(timer), BorderLayout.CENTER);
+        program.add(clock = new Clock(timer), BorderLayout.CENTER);
+        clock.setSize(400, 300);
+        createControls(timer);
 
+    }
+
+    private void createControls(Timer timer) {
         JToolBar timeControls = new JToolBar();
+        JPanel controls = new JPanel();
         timeControls.setLayout(new FlowLayout(FlowLayout.CENTER));
         timeControls.setFloatable(false);
         timeControls.add(plus1Hour = new JButton("+1 hour"));
@@ -35,7 +41,12 @@ public class Gui {
         plus10Min.addActionListener((ActionEvent e) -> timer.addTime(new Time(0, 10, 0)));
         plus1Hour.addActionListener((ActionEvent e) -> timer.addTime(new Time(1, 0, 0)));
 
-        program.add(timeControls, BorderLayout.SOUTH);
+        pausePlay = new JButton(new ImageIcon("assets/pause_play.png"));
+        pausePlay.addActionListener((ActionEvent e) -> timer.switchState());
 
+        program.add(controls, BorderLayout.SOUTH);
+        controls.add(timeControls, BorderLayout.NORTH);
+        controls.add(new PausePlay(timer), BorderLayout.SOUTH);
     }
+
 }

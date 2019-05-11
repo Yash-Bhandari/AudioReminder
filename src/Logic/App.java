@@ -11,7 +11,7 @@ public class App {
     Timer timer;
 
     public App() {
-        timer = new Timer(0, 0, 2);
+        timer = new Timer(0, 0, 10);
         timer.pause();
         gui = new Gui(timer);
         ap = new AudioPlayer("audio/audio1.wav");

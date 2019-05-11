@@ -40,17 +40,27 @@ public class Timer {
     }
 
     public void pause() {
-        pauseTime = System.currentTimeMillis();
-        paused = true;
+        if (!isPaused()) {
+            pauseTime = System.currentTimeMillis();
+            paused = true;
+        }
     }
 
     public void resume() {
-        if(paused) {
+        if(isPaused()) {
             long timePaused = System.currentTimeMillis() - pauseTime;
             endTime += timePaused;
         }
         paused = false;
     }
+
+    public void switchState() {
+        if(isPaused())
+            resume();
+        else
+            pause();
+    }
+
 
     public boolean isPaused() {
         return paused;
