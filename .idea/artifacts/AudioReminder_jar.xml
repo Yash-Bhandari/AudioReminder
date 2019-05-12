@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AudioReminder:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AudioReminder_jar</output-path>
+    <root id="archive" name="AudioReminder.jar">
+      <element id="module-output" name="AudioReminder" />
+    </root>
+  </artifact>
+</component>
